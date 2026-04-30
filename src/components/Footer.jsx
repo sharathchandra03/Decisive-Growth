@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import './Footer.css'
+import logoImg from '../assets/logo.png'
 
 const serviceLinks = {
   'Executive Search': [
@@ -39,7 +40,7 @@ export default function Footer() {
         >
           <div className="footer__brand">
             <div className="footer__logo">
-              <img src="/assets/logo.png" alt="Decisive Growth Co." />
+              <img src={logoImg} alt="Decisive Growth Co." />
               <span>Decisive</span>
             </div>
             <p className="footer__tagline">

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import './Loader.css'
+import logoImg from '../assets/logo.png'
 
 export default function Loader() {
   return (
@@ -15,7 +16,7 @@ export default function Loader() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <img src="/assets/logo.png" alt="Decisive" />
+          <img src={logoImg} alt="Decisive" />
         </motion.div>
         <motion.div
           className="loader__bar-track"

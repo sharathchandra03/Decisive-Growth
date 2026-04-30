@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion'
 import { useRef, useEffect } from 'react'
 import './Hero.css'
+import vishwaImg from '../assets/vishwa.png'
 
 export default function Hero() {
   const ref = useRef(null)
@@ -141,7 +142,7 @@ export default function Hero() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
           >
             <img
-              src="/assets/vishwa.png"
+              src={vishwaImg}
               alt="Vishwa — CEO, Decisive Growth Co."
               className="hero__image"
             />

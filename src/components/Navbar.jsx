@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import './Navbar.css'
+import logoImg from '../assets/logo.png'
 
 const navLinks = [
   { label: 'Services', href: '#services' },
@@ -27,7 +28,7 @@ export default function Navbar() {
     >
       <div className="navbar__container container">
         <a href="#" className="navbar__logo" id="navbar-logo">
-          <img src="/assets/logo.png" alt="Decisive Growth Co." />
+          <img src={logoImg} alt="Decisive Growth Co." />
           <span className="navbar__brand">Decisive</span>
         </a>
 
