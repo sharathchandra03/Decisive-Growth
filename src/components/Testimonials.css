@@ -1,0 +1,100 @@
+.testimonials {
+  padding: var(--space-section) 0;
+}
+
+.testimonials__header {
+  margin-bottom: var(--space-4xl);
+}
+
+.testimonials__header h2 {
+  margin-bottom: var(--space-lg);
+}
+
+.testimonials__slider {
+  max-width: 720px;
+  position: relative;
+}
+
+.testimonials__quote-mark {
+  font-family: var(--font-heading);
+  font-size: 6rem;
+  line-height: 0.8;
+  color: rgba(124,58,237,0.1);
+  margin-bottom: var(--space-md);
+  user-select: none;
+}
+
+.testimonials__quote {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  font-style: italic;
+  margin-bottom: var(--space-2xl);
+}
+
+.testimonials__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.testimonials__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--brand-gradient);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--text-sm);
+}
+
+.testimonials__name {
+  display: block;
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--text-primary);
+}
+
+.testimonials__role {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+
+.testimonials__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-top: var(--space-3xl);
+}
+
+.testimonials__btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.testimonials__btn:hover {
+  border-color: var(--brand-purple);
+  color: var(--brand-purple);
+  transform: scale(1.05);
+}
+
+.testimonials__counter {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--text-tertiary);
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
+}

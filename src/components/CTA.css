@@ -1,0 +1,120 @@
+.cta {
+  padding: var(--space-section) 0;
+  background: var(--bg-dark);
+  color: var(--text-on-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta__container {
+  position: relative;
+  z-index: 2;
+}
+
+.cta__content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta__title {
+  color: var(--text-on-dark);
+  margin-bottom: var(--space-xl);
+}
+
+.cta__title-accent {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cta__subtitle {
+  font-size: var(--text-lg);
+  color: var(--text-on-dark-secondary);
+  max-width: 480px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.cta__actions {
+  margin-bottom: var(--space-3xl);
+}
+
+.btn--lg {
+  padding: 1.1rem 2.5rem !important;
+  font-size: var(--text-base) !important;
+}
+
+.cta__contact-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xl);
+}
+
+.cta__contact-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255,255,255,0.12);
+}
+
+.cta__contact-label {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--text-on-dark-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.cta__contact-value {
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--text-on-dark);
+  transition: color var(--duration-fast) ease;
+}
+
+.cta__contact-value:hover {
+  color: var(--brand-violet);
+}
+
+/* Decorative circles */
+.cta__deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(124,58,237,0.15);
+  pointer-events: none;
+}
+
+.cta__deco-circle--1 {
+  width: 400px;
+  height: 400px;
+  top: -150px;
+  right: -100px;
+  animation: pulse 6s ease-in-out infinite;
+}
+
+.cta__deco-circle--2 {
+  width: 300px;
+  height: 300px;
+  bottom: -100px;
+  left: -80px;
+  animation: pulse 6s ease-in-out infinite 2s;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@media (max-width: 640px) {
+  .cta__contact-info {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .cta__contact-divider {
+    width: 40px;
+    height: 1px;
+  }
+}
