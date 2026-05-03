@@ -1,12 +1,19 @@
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion'
-import { useRef, useEffect } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import './Hero.css'
 import vishwaImg from '../assets/vishwa.png'
 
+function StarIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+    </svg>
+  )
+}
+
 export default function Hero() {
   const ref = useRef(null)
-  
-  // Scroll animations
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start']
@@ -16,36 +23,31 @@ export default function Hero() {
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 0.95])
   const textY = useTransform(scrollYProgress, [0, 1], [0, -40])
 
-  // Fade Up Variants
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.16, 1, 0.3, 1],
-        delay: 0.3 + i * 0.12
-      }
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 + i * 0.12 }
     })
   }
 
-  // Word Split Animation
   const titleLine1 = "Transformation".split(" ")
   const titleLine2 = "Architect".split(" ")
 
   const wordVariants = {
     hidden: { opacity: 0, y: 30, rotateX: -20 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       rotateX: 0,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
     }
   }
 
   return (
     <section className="hero" ref={ref} id="hero">
+      <div className="hero__bg-pattern" aria-hidden="true" />
       <div className="hero__container container">
         <motion.div className="hero__content" style={{ y: textY }}>
           <motion.div
@@ -55,8 +57,11 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
           >
-            <span className="stars">★★★★★</span>
+            <span className="hero__stars" aria-label="5 star rating">
+              {[...Array(5)].map((_, i) => <StarIcon key={i} />)}
+            </span>
             <span className="score">4.9/5</span>
+            <span className="hero__rating-label">Client Satisfaction</span>
           </motion.div>
 
           <motion.h1
@@ -118,12 +123,12 @@ export default function Hero() {
               <span className="hero__trust-number">10+</span>
               <span className="hero__trust-label">Years Experience</span>
             </div>
-            <div className="hero__trust-divider" />
+            <div className="hero__trust-divider" aria-hidden="true" />
             <div className="hero__trust-item">
               <span className="hero__trust-number">60+</span>
               <span className="hero__trust-label">Clients Served</span>
             </div>
-            <div className="hero__trust-divider" />
+            <div className="hero__trust-divider" aria-hidden="true" />
             <div className="hero__trust-item">
               <span className="hero__trust-number">250+</span>
               <span className="hero__trust-label">CXOs Coached</span>
@@ -143,9 +148,16 @@ export default function Hero() {
           >
             <img
               src={vishwaImg}
-              alt="Vishwa — CEO, Decisive Growth Co."
+              alt="Vishwa — Founder & CEO, Decisive Growth Co."
               className="hero__image"
+              width="500"
+              height="600"
+              loading="eager"
             />
+            <div className="hero__image-badge">
+              <span className="hero__badge-line">5000+</span>
+              <span className="hero__badge-sub">Coaching Hours</span>
+            </div>
           </motion.div>
         </motion.div>
       </div>

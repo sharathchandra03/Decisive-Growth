@@ -2,6 +2,8 @@ import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import './About.css'
 
+const industries = ['Aviation', 'FinTech', 'Pharma', 'FMCG', 'Infrastructure', 'Technology', 'Fashion', 'Banking']
+
 export default function About() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
@@ -29,9 +31,9 @@ export default function About() {
               I'm Vishwa, the Founder & CEO of Decisive Growth Co.
             </p>
             <div className="about__credentials">
-              <span className="about__credential">10+ years of transformation experience</span>
-              <span className="about__credential">Coached 250+ CXOs</span>
-              <span className="about__credential">5000+ hours of coaching</span>
+              <span className="about__credential">10+ Years of Transformation</span>
+              <span className="about__credential">250+ CXOs Coached</span>
+              <span className="about__credential">5000+ Coaching Hours</span>
             </div>
           </motion.div>
 
@@ -46,6 +48,13 @@ export default function About() {
             re-engineering. Over the years, we've built and refined different proven
             frameworks for the most critical organizational problems.
           </motion.p>
+
+          <motion.div className="about__industries" {...fadeUp(0.45)}>
+            <span className="about__industry-label">Trusted across</span>
+            {industries.map((ind) => (
+              <span key={ind} className="about__industry-tag">{ind}</span>
+            ))}
+          </motion.div>
 
           <motion.div {...fadeUp(0.5)}>
             <a href="#contact" className="btn btn--outline" id="about-cta">

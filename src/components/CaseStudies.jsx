@@ -1,6 +1,5 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { GlowCard } from './ui/spotlight-card'
 import './CaseStudies.css'
 
 const cases = [
@@ -42,12 +41,7 @@ export default function CaseStudies() {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 + i * 0.08 }}
               className="h-full"
             >
-              <GlowCard customSize glowColor="orange" className="h-full !p-0">
-                <a 
-                  href="#" 
-                  className="cases__card" 
-                  style={{ height: '100%', margin: 0, background: 'rgba(255,255,255,0.03)', border: 'none', boxShadow: 'none' }}
-                >
+                <a href="#" className="cases__card">
                   <div className="cases__card-top">
                     <span className="cases__tag">{c.tag}</span>
                     <span className="cases__arrow">↗</span>
@@ -55,7 +49,6 @@ export default function CaseStudies() {
                   <h4 className="cases__card-title">{c.title}</h4>
                   <span className="cases__card-link">Read Case Study</span>
                 </a>
-              </GlowCard>
             </motion.div>
           ))}
         </div>

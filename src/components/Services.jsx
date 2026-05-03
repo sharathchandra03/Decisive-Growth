@@ -11,6 +11,7 @@ const services = [
     desc: 'We develop and renew the leadership presence, maturity, capability, and culture in your organization enabling it to perform consistently and scale with confidence.',
     detail: 'LACE is a holistic organisation development and change framework that addresses every aspect of the people and capability lifecycle. A ground tested, proven practitioners framework from 10 years of real transformation experience across varied industries.',
     fractional: 'Also offered as a fractional service in a 3×3×3 model.',
+    flagship: true,
   },
   {
     id: 'sat',
@@ -34,6 +35,29 @@ const services = [
     desc: 'We design and implement a disciplined system for leadership development, business reviews, rewards, and facilitate tough pivots so excellence becomes a habit, not a push.',
   },
 ]
+
+function ChevronIcon({ open }) {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{
+        transform: open ? 'rotate(45deg)' : 'rotate(0deg)',
+        transition: 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+      }}
+      aria-hidden="true"
+    >
+      <line x1="12" y1="5" x2="12" y2="19" />
+      <line x1="5" y1="12" x2="19" y2="12" />
+    </svg>
+  )
+}
 
 export default function Services() {
   const ref = useRef(null)
@@ -61,7 +85,7 @@ export default function Services() {
           {services.map((service, i) => (
             <motion.div
               key={service.id}
-              className={`services__card ${expanded === service.id ? 'services__card--expanded' : ''}`}
+              className={`services__card ${service.flagship ? 'services__card--flagship' : ''} ${expanded === service.id ? 'services__card--expanded' : ''}`}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 + i * 0.1 }}
@@ -75,8 +99,8 @@ export default function Services() {
                     <p className="services__card-subtitle">{service.subtitle}</p>
                   </div>
                 </div>
-                <span className={`services__toggle ${expanded === service.id ? 'services__toggle--open' : ''}`}>
-                  +
+                <span className="services__toggle">
+                  <ChevronIcon open={expanded === service.id} />
                 </span>
               </div>
 
@@ -88,6 +112,7 @@ export default function Services() {
                   opacity: expanded === service.id ? 1 : 0
                 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                style={{ overflow: 'hidden' }}
               >
                 <p className="services__card-desc">{service.desc}</p>
                 {service.detail && (
@@ -96,7 +121,7 @@ export default function Services() {
                 {service.fractional && (
                   <span className="services__fractional">{service.fractional}</span>
                 )}
-                <a href="#contact" className="btn btn--ghost services__card-link">
+                <a href="#contact" className={`btn services__card-link ${service.flagship ? 'btn--outline-light' : 'btn--ghost'}`}>
                   Know More <span className="btn__arrow">→</span>
                 </a>
               </motion.div>

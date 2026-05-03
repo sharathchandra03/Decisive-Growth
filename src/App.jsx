@@ -29,20 +29,24 @@ export default function App() {
       gestureDirection: 'vertical',
       smooth: true,
       mouseMultiplier: 1,
-      smoothTouch: false,
+      // enable touch smoothing for a more fluid feel on touch devices
+      smoothTouch: true,
       touchMultiplier: 2,
       infinite: false,
     })
 
+    let rafId
+
     function raf(time) {
       lenis.raf(time)
-      requestAnimationFrame(raf)
+      rafId = requestAnimationFrame(raf)
     }
 
-    requestAnimationFrame(raf)
+    rafId = requestAnimationFrame(raf)
 
     return () => {
       clearTimeout(timer)
+      if (rafId) cancelAnimationFrame(rafId)
       lenis.destroy()
     }
   }, [])
